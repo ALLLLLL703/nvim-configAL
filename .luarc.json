@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "local",
+        "build_cmd"
+    ]
+}
