@@ -25,58 +25,19 @@ return {
       -- fill any relevant options here
     },
   },
-  -- {
-  --   "kevinhwang91/nvim-ufo",
-  --   dependencies = { "kevinhwang91/promise-async" },
-  --   event = "BufReadPost", -- 延迟加载
-  --   config = function()
-  --     -- 基本折叠设置
-  --     vim.o.foldcolumn = "1" -- 显示折叠列
-  --     vim.o.foldlevel = 99 -- 默认展开所有折叠
-  --     vim.o.foldlevelstart = 99
-  --     vim.o.foldenable = true
-  --
-  --     -- 自定义快捷键
-  --     vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open all folds" })
-  --     vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close all folds" })
-  --     vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds, { desc = "Open folds except kinds" })
-  --     vim.keymap.set("n", "zm", require("ufo").closeFoldsWith, { desc = "Close folds with level" })
-  --     vim.keymap.set("n", "K", function()
-  --       local winid = require("ufo").peekFoldedLinesUnderCursor()
-  --       if not winid then
-  --         vim.lsp.buf.hover() -- 回退到 LSP 悬浮窗
-  --       end
-  --     end, { desc = "Preview fold or LSP hover" })
-  --
-  --     -- 配置 nvim-ufo
-  --     require("ufo").setup({
-  --       provider_selector = function(_, filetype, _)
-  --         -- 优先使用 LSP， fallback 到 TreeSitter 和 indent
-  --         return { "lsp", "treesitter", "indent" }
-  --       end,
-  --       preview = {
-  --         win_config = {
-  --           border = "rounded",
-  --           winhighlight = "Normal:Normal",
-  --           winblend = 0,
-  --         },
-  --         mappings = {
-  --           scrollU = "<C-u>",
-  --           scrollD = "<C-d>",
-  --         },
-  --       },
-  --       -- 排除特定文件类型（如 Neorg 的某些缓冲区）
-  --       filetype_exclude = { "help", "dashboard", "neo-tree", "Trouble", "lazy" },
-  --     })
-  --
-  --     -- 自动禁用特定文件类型的折叠
-  --     vim.api.nvim_create_autocmd("FileType", {
-  --       group = vim.api.nvim_create_augroup("local_detach_ufo", { clear = true }),
-  --       pattern = { "help", "dashboard", "neo-tree", "Trouble", "lazy" },
-  --       callback = function()
-  --         require("ufo").detach()
-  --       end,
-  --     })
-  --   end,
-  -- },
+
+  {
+    "michaelb/sniprun",
+    branch = "master",
+
+    build = "sh install.sh",
+    -- do 'sh install.sh 1' if you want to force compile locally
+    -- (instead of fetching a binary from the github release). Requires Rust >= 1.65
+
+    config = function()
+      require("sniprun").setup({
+        -- your options
+      })
+    end,
+  },
 }
