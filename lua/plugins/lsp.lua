@@ -203,4 +203,50 @@ return {
       "nvim-tree/nvim-web-devicons", -- optional
     },
   },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim",
+    },
+    event = "VeryLazy",
+    config = function()
+      local refactoring = require("refactoring")
+      refactoring.setup({
+        prompt_func_return_type = {
+          c = true,
+          cpp = true,
+        },
+        prompt_func_param_type = {
+          c = true,
+          cpp = true,
+        },
+        show_success_message = true, -- 显示重构成功消息
+      })
+
+      -- 加载 Telescope 扩展
+      require("telescope").load_extension("refactoring")
+
+      -- 快捷键：选择重构操作（Telescope 界面）
+      vim.keymap.set({ "n", "x" }, "<leader>rr", function()
+        require("telescope").extensions.refactoring.refactors()
+      end, { desc = "Refactor: Select Refactor (Telescope)" })
+
+      -- 快捷键：提取函数
+      vim.keymap.set("x", "<leader>re", function()
+        return require("refactoring").refactor("Extract Function")
+      end, { expr = true, desc = "Refactor: Extract Function" })
+
+      -- 快捷键：提取变量
+      vim.keymap.set("x", "<leader>rv", function()
+        return require("refactoring").refactor("Extract Variable")
+      end, { expr = true, desc = "Refactor: Extract Variable" })
+
+      -- 快捷键：内联变量
+      vim.keymap.set({ "n", "x" }, "<leader>ri", function()
+        return require("refactoring").refactor("Inline Variable")
+      end, { expr = true, desc = "Refactor: Inline Variable" })
+    end,
+  },
 }
