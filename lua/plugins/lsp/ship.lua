@@ -1,70 +1,69 @@
 return {
-  -- nvim-cmp 自动补全框架
   {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter", -- 在进入插入模式时加载
+    "L3MON4D3/LuaSnip",
+    event = "lazy",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp", -- LSP 补全源
-      "hrsh7th/cmp-buffer", -- 缓冲区单词补全
-      "hrsh7th/cmp-path", -- 文件路径补全
-      "saadparwaiz1/cmp_luasnip", -- LuaSnip 补全源 (非常重要!)
-      "L3MON4D3/LuaSnip", -- LuaSnip 核心插件
-      "rafamadriz/friendly-snippets", -- 常用代码片段集合 (推荐!)
+      "saadparwaiz1/cmp_luasnip", -- 与 nvim-cmp 集成
+      "rafamadriz/friendly-snippets", -- 预定义代码片段
     },
     config = function()
-      local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local types = require("luasnip.util.types")
 
       -- 加载 friendly-snippets
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      cmp.setup({
-        snippet = {
-          -- REQUIRED - you must specify a snippet engine
-          expand = function(args)
-            luasnip.lsp_expand(args.body) -- For `luasnip` users.
-          end,
+      -- 配置 LuaSnip
+      luasnip.config.set_config({
+        history = true, -- 保留片段历史
+        update_events = "TextChanged,TextChangedI", -- 动态更新片段
+        enable_autosnippets = true, -- 自动触发片段
+        ext_opts = {
+          [types.choiceNode] = {
+            active = {
+              virt_text = { { "← Choice", "Comment" } },
+            },
+          },
         },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(), -- 手动触发补全
-          ["<C-e>"] = cmp.mapping.abort(), -- 取消补全
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- 确认选择的补全项
+      })
 
-          -- Tab 和 Shift+Tab 用于在补全菜单中选择和在片段占位符之间跳转
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
-            else
-              fallback()
-            end
-          end, { "i", "s" }), -- 'i' 插入模式, 's' 选择模式
+      -- 快捷键
+      vim.keymap.set({ "i", "s" }, "<Tab>", function()
+        if luasnip.expand_or_jumpable() then
+          return luasnip.expand_or_jump()
+        end
+        return "<Tab>"
+      end, { expr = true, silent = true })
 
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
+      vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+        if luasnip.jumpable(-1) then
+          return luasnip.jump(-1)
+        end
+        return "<S-Tab>"
+      end, { expr = true, silent = true })
+
+      vim.keymap.set("i", "<C-E>", function()
+        if luasnip.choice_active() then
+          return luasnip.change_choice(1)
+        end
+        return "<C-E>"
+      end, { silent = true })
+
+      -- 自定义片段示例
+      luasnip.add_snippets("cpp", {
+        luasnip.snippet("fori", {
+          luasnip.text_node("for (int "),
+          luasnip.insert_node(1, "i = 0"),
+          luasnip.text_node("; "),
+          luasnip.insert_node(2, "i < 10"),
+          luasnip.text_node("; "),
+          luasnip.insert_node(3, "i++"),
+          luasnip.text_node(") {"),
+          luasnip.text_node({ "", "\t" }),
+          luasnip.insert_node(0), -- 光标最终位置
+          luasnip.text_node({ "", "}" }),
         }),
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" }, -- LSP 补全
-          { name = "luasnip" }, -- Snippet 补全 (来自 LuaSnip) { name = "buffer" }, -- 当前缓冲区单词补全 { name = "path" }, -- 文件路径补全
-        }),
-        -- ... 其他 cmp 配置 (可选)
       })
     end,
-  },
-  {
-
-    "L3MON4D3/LuaSnip",
-    build = "make install_jsregexp", -- 确保这个构建命令在某些系统上运行
-    -- 或者只是确保它没有明确阻止构建
   },
 }

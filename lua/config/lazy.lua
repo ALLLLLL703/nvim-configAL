@@ -53,5 +53,5 @@ require("lazy").setup({
     },
   },
 })
-
+require("config.requirements")
 --

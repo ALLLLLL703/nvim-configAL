@@ -30,13 +30,25 @@ return {
   -- disable trouble
   { "folke/trouble.nvim", enabled = false },
 
-  -- override nvim-cmp and add cmp-emoji
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
+    dependencies = {
+      -- ... 其他 cmp 依赖 ...
+      "saadparwaiz1/cmp_luasnip", -- 确保这个依赖存在
+      "L3MON4D3/LuaSnip", -- nvim-cmp 依赖 LuaSnip
+      "rafamadriz/friendly-snippets", -- nvim-cmp 也可能直接依赖这个来确保片段加载
+    },
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
+      -- ... 其他 cmp 配置 ...
+      local cmp = require("cmp")
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp" }, -- LSP 补全源
+        { name = "luasnip" }, -- **确保这一行存在，这是 LuaSnip 的补全源**
+        { name = "path" }, -- 路径补全
+        { name = "buffer" }, -- 缓冲区内容补全
+      })
+      -- ... 其他 cmp 配置 ...
     end,
   },
 
