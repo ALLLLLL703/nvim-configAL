@@ -1,6 +1,8 @@
 {
-    "diagnostics.globals": [
-        "local",
-        "build_cmd"
+    "workspace.library": [
+        "/usr/share/nvim/runtime/lua",
+        "/home/sanae/.config/nvim/lua",
+        "/home/sanae/.local/share/nvim/lazy/lazy.nvim",
+        "${3rd}/luassert/library"
     ]
 }
