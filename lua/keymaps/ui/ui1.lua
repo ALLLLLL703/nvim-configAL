@@ -12,3 +12,10 @@ local map = vim.keymap.set
 --     vim.cmd("NvimTreeOpen")
 --   end
 -- })
+map({ 't', 'n', 'i' }, '<A-x>', '<cmd>Lspsaga term_toggle<CR>', { desc = 'float term' })
+map('n', '<leader>uC', '<cmd>Telescope colorscheme<CR>', { desc = 'change theme' })
+map('n', '<leader>ll', '<cmd>Lazy<CR>', { desc = 'lazyvim' })
+-- Show hydra mode for changing windows
+map({ 'n', 'i', 'v' }, '<c-s>', ':w<CR>', { desc = 'save file' })
+vim.keymap.del('n','<leader>e')
+map({'n','v'}, '<leader>e', '<cmd>Neotree toggle<CR>', {desc = 'explorer'})

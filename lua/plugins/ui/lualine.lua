@@ -6,7 +6,7 @@
 -- 文档链接: https://github.com/nvim-lualine/lualine.nvim/blob/master/doc/lualine.txt
 
 return {
-    'nvim-lualine/lualine.nvim',
+	{'nvim-lualine/lualine.nvim',
     -- 依赖：lualine 也依赖 nvim-web-devicons 来显示文件类型图标
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     -- tag: 推荐使用特定的 tag 来锁定版本
@@ -75,4 +75,17 @@ return {
     -- extensions = { 'nvim-tree', 'lazy' }, -- 启用与特定插件的集成
     })
     end,
+	},
+	{
+        "goolord/alpha-nvim",
+        lazy = true,
+    },
+
+    -- Bufferline
+    {
+        'akinsho/bufferline.nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        },
+    },
 }

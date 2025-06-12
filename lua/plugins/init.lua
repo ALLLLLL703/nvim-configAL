@@ -26,7 +26,15 @@ local plugins = {
   require('plugins.ui.theme.tokyonight'),
   require('plugins.ui.lualine'),
   require('plugins.lsp.basic.mason'),
-  require('plugins.lsp.basic.lspconfig')
+  require('plugins.lsp.basic.lspconfig'),
+  require('plugins.lsp.basic.cmp'),
+  require('plugins.lsp.basic.lspsaga'),
+  require('plugins.ui.telescope'),
+  require('plugins.ui.whichkey'),
+
+  require('plugins.lsp.basic.diag'),
+
+
 
 }
 
@@ -36,3 +44,4 @@ require("lazy").setup(plugins, {
   },
   -- debug = true, -- 如果需要调试，可以取消注释
 })
+
