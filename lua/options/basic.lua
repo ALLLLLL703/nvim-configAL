@@ -24,7 +24,7 @@ vim.opt.cursorline = true-- **vim.opt.cursorline**: 高亮光标所在的整行�
 --左侧符号显示
 vim.opt.signcolumn = "yes"
 -- **vim.opt.completeopt**: 自动补全菜单的选项。
-vim.opt.completeopt = "menuone,noselect,preview"
 --可以禁用一些提示信息
 --vim.opt.shortmess:append("c")
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 

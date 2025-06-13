@@ -4,8 +4,8 @@
 -- ==============================
 
 -- 缩进
-vim.opt.tabstop = 4             -- Tab 键的宽度为 4 个空格
-vim.opt.shiftwidth = 4          -- 自动缩进的宽度为 4 个空格
+vim.opt.tabstop = 2             -- Tab 键的宽度为 4 个空格
+vim.opt.shiftwidth = 2          -- 自动缩进的宽度为 4 个空格
 vim.opt.expandtab = false        -- 将 Tab 键转换为空格
 
 -- 文件和缓冲区管理

@@ -22,3 +22,4 @@ filesystem = {
     end,
   },
 })
+-- bufferlint.nvim
