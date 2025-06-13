@@ -26,3 +26,4 @@ map({'n','v'}, '<leader>bo', '<cmd>BufferLineCloseOthers<CR>', {desc = 'delete o
 map({'n','v'}, '<leader>bl', '<cmd>BufferLineCloseLeft<CR>', {desc = 'delete left'})
 map({'n','v'}, '<leader>br', '<cmd>BufferLineCloseRight<CR>', {desc = 'delete right'})
 map({'n','v'}, '<leader>bg', '<cmd>BufferLineGroupToggle<CR>', {desc = 'group init'})
+map('n', '<leader>cm','<cmd>Mason<CR>',{desc = 'Mason'})

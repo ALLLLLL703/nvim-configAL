@@ -22,9 +22,14 @@ return{
 	},
 	{
 		'echasnovski/mini.nvim',
+		dependencies = {
+			'echasnovski/mini.ai'
+		}
 	},
 	{
 		'L3MON4D3/LuaSnip',	
+	},
+	{      "zbirenbaum/copilot-cmp",     -- Neovim Lua API 补全
 	},
 
 }

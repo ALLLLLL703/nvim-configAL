@@ -23,6 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   -- 调用 lua/plugins/ui/nvim-tree.lua 文件中定义的插件配置
   require("plugins.editor.treesitter"),
+  require("plugins.editor.copilot"),
   require("plugins.ui.nvim-tree"),
   require('plugins.ui.theme.tokyonight'),
   require('plugins.ui.lualine'),
