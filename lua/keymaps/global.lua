@@ -50,5 +50,7 @@ map({"n", "v"}, "J", "mzJ`z", { desc = "Join Lines" })
 map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Clear Highlight Search" })
 
 -- 复制文件路径到系统剪贴板
-map("n", "<leader>fp", ":let @+ = expand('%:p')<CR>", { desc = "Copy Full Path" })
+map("n", "<leader>fP", ":let @+ = expand('%:p')<CR>", { desc = "Copy Full Path" })
+vim.keymap.set('n','<leader>fp',':lua require\'telescope\'.extensions.projects.projects{}<CR>',{desc = 'find projects'})
+
 map("n", "<leader>fd", ":let @+ = expand('%:p:h')<CR>", { desc = "Copy Directory Path" })

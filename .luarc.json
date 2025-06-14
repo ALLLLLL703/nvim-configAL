@@ -4,5 +4,8 @@
         "/home/sanae/.config/nvim/lua",
         "/home/sanae/.local/share/nvim/lazy/lazy.nvim",
         "${3rd}/luassert/library"
+    ],
+    "diagnostics.globals": [
+        "local"
     ]
 }

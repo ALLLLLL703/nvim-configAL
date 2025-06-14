@@ -7,4 +7,6 @@ maps('n','<leader>gS',b .. '.git_stash{}<CR>',{desc='git stash'})
 maps('n','<leader>up',b .. '.planets{}<CR>',{desc='planets'})
 
 maps('n','<leader>st',b .. '.treesitter{}<CR>',{desc='treesitter'})
+maps('n','<leader>fr','<cmd>Telescope oldfiles<CR>',{desc='treesitter'})
+
 

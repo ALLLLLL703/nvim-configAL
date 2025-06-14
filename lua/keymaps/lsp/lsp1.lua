@@ -13,3 +13,4 @@ map('n','<leader>ff', '<cmd>Telescope find_files<CR>', {desc = '📁 Find file'}
 map('n','<leader>fn', ":ene <BAR> startinsert <CR>", {desc ='  New file'})
 map('n','<leader>cf', vim.lsp.buf.format, {desc = 'Format file'})
 
+map('n','<leader>cr', '<cmd>Lspsaga rename<CR>', {desc = 'rename'})
