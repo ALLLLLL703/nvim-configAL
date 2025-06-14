@@ -11,5 +11,5 @@ map({'n','v'}, '<leader>cF', '<cmd>Lspsaga show_buf_diagnostics<CR>', {desc = 'd
    -- dashboard.button("q", "࿕ Quit Neovim", ":qa<CR>"),
 map('n','<leader>ff', '<cmd>Telescope find_files<CR>', {desc = '📁 Find file'})
 map('n','<leader>fn', ":ene <BAR> startinsert <CR>", {desc ='  New file'})
-
+map('n','<leader>cf', vim.lsp.buf.format, {desc = 'Format file'})
 
