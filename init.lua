@@ -5,3 +5,4 @@ require('keymaps')
 
 require('plugins')
 --require('config')
+vim.cmd('colorscheme onedark_vivid')

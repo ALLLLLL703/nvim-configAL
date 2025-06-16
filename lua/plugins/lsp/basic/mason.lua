@@ -12,7 +12,7 @@ return {
   
   
   
-  event = "VimEnter", 
+  event = "VeryLazy", 
 
   
   config = function()

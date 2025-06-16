@@ -14,7 +14,7 @@ return {
 
     -- 事件驱动加载 (Lazy Loading):
     -- 通常 lualine 都会在 Neovim 启动时就加载，因为它是一个核心的 UI 组件。
-    event = "VimEnter",
+    event = "VeryLazy",
 
     -- 配置函数：当插件加载时执行
     config = function()
@@ -79,6 +79,8 @@ return {
 	{
         "goolord/alpha-nvim",
         lazy = true,
+				
+				event = 'VimEnter',
         config = function()
             -- alpha-config.lua
 

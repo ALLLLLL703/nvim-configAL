@@ -10,3 +10,10 @@ maps('n','<leader>st',b .. '.treesitter{}<CR>',{desc='treesitter'})
 maps('n','<leader>fr','<cmd>Telescope oldfiles<CR>',{desc='treesitter'})
 
 
+maps('n',"<leader>fR", ":Telescope registers<CR>", {desc = "Find Registers"})
+maps('n',"<leader>fg", ":Telescope live_grep<CR>", {desc = "Live Grep"}) 
+maps('n',"<leader>fb", ":Telescope buffers<CR>", {desc = "Buffers"})      
+maps('n',"<leader>fq", ":Telescope quickfix<CR>", {desc = "Quickfix"})    
+maps('n',"<leader>hq", ":Telescope quickfixhistory<CR>", {desc = "Quick fix"})
+maps('n',"<leader>hk", ":Telescope keymaps<CR>", {desc = "keymap"})
+

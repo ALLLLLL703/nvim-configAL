@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"debugloop/telescope-undo.nvim",
@@ -170,7 +170,7 @@ return {
 					-- please take a look at the readme of the extension you want to configure
 				}
 			}
-			vim.keymap.set('n','<leader>fp',require'telescope'.extensions.projects.projects{},{desc = 'Find Projects'})
+			vim.keymap.set('n','<leader>fp',require('telescope').extensions.projects.projects{},{desc = 'Find Projects'})
 
 		end,
 	}

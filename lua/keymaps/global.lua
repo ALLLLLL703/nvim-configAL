@@ -15,7 +15,6 @@
 local map = vim.keymap.set
 
 -- 保存/退出
-map("n", "<leader>w", ":w<CR>", { desc = "Save File" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit Neovim" })
 map("n", "<leader>Q", ":qa!<CR>", { desc = "Force Quit All" })
 
