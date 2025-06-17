@@ -22,7 +22,12 @@ map("n", "<leader>Q", ":qa!<CR>", { desc = "Force Quit All" })
 map("n", "<leader>bn", ":bnext<CR>", { desc = "Next Buffer" })
 map("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous Buffer" })
 map("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete Buffer" })
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height" })
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height" })
 
+-- 调整窗口水平宽度
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
 -- 分屏操作
 map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split Vertical" })
 map("n", "<leader>sh", ":split<CR>", { desc = "Split Horizontal" })
@@ -43,13 +48,14 @@ map("v", ">", ">gv", { desc = "Indent Selection" })
 map("v", "<", "<gv", { desc = "Outdent Selection" })
 
 -- Normal 和 Visual 模式下，J 合并下一行
-map({"n", "v"}, "J", "mzJ`z", { desc = "Join Lines" })
+map({ "n", "v" }, "J", "mzJ`z", { desc = "Join Lines" })
 
 -- 保持高亮搜索结果，在输入后立即清除
 map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Clear Highlight Search" })
 
 -- 复制文件路径到系统剪贴板
 map("n", "<leader>fP", ":let @+ = expand('%:p')<CR>", { desc = "Copy Full Path" })
-vim.keymap.set('n','<leader>fp',':lua require\'telescope\'.extensions.projects.projects{}<CR>',{desc = 'find projects'})
+vim.keymap.set('n', '<leader>fp', ':lua require\'telescope\'.extensions.projects.projects{}<CR>',
+	{ desc = 'find projects' })
 
 map("n", "<leader>fd", ":let @+ = expand('%:p:h')<CR>", { desc = "Copy Directory Path" })
