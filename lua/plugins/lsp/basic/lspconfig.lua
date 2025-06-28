@@ -7,22 +7,27 @@
 -- 支持的 LSP 服务器列表: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 return {
 	{
-		'junnplus/lsp-setup.nvim',
+		"junnplus/lsp-setup.nvim",
 		dependencies = {
-			'neovim/nvim-lspconfig',
-			'mason-org/mason.nvim',        -- optional
-			'mason-org/mason-lspconfig.nvim', -- optional
+			"neovim/nvim-lspconfig",
+			"mason-org/mason.nvim", -- optional
+			"mason-org/mason-lspconfig.nvim", -- optional
 		},
 		---@type LspSetup.Options
 		opts = {
 			servers = {
 				pylsp = {},
-				clangd = {}
-			}
+				clangd = {},
+			},
 		},
 
 		config = function()
-			require('config.plugins.lsp.lspconfig')
+			require("config.plugins.lsp.lspconfig")
+			vim.lsp.enable("lua_ls")
+			vim.lsp.enable("clangd")
+			vim.lsp.enable("rust_analyzer")
+			vim.lsp.enable("bash")
+			vim.lsp.enable("asm_lsp")
 		end,
-	}
+	},
 }

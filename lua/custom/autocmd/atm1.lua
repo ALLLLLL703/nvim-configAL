@@ -1,9 +1,3 @@
-vim.api.nvim_create_autocmd('BufWritePre', {
-	pattern = '*',
-	callback = function()
-		vim.lsp.buf.format()
-	end
-})
 local fw = true
 vim.keymap.set('n', '<leader>td', function()
 	if fw then

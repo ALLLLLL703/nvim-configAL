@@ -14,7 +14,7 @@ return {
 			local lga_actions = require("telescope-live-grep-args.actions")
 			local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
 			local undo_actions = require("telescope-undo.actions")
-			require('telescope').load_extension('projects')
+			require("telescope").load_extension("projects")
 			telescope.setup({
 				defaults = {
 					layout_config = {
@@ -73,12 +73,10 @@ return {
 			local status_ok, telescope = pcall(require, "telescope")
 			if not status_ok then
 				return
-
 			end
 
-
 			local actions = require("telescope.actions")
-			require('telescope').setup {
+			require("telescope").setup({
 				defaults = {
 					-- Default configuration for telescope goes here:
 					-- config_key = value,
@@ -86,7 +84,6 @@ return {
 					prompt_prefix = " ",
 					selection_caret = " ",
 					path_display = { "smart" },
-
 
 					mappings = {
 						i = {
@@ -151,7 +148,7 @@ return {
 
 							["?"] = actions.which_key,
 						},
-					}
+					},
 				},
 				pickers = {
 					-- Default configuration for builtin pickers goes here:
@@ -168,10 +165,44 @@ return {
 					--   extension_config_key = value,
 					-- }
 					-- please take a look at the readme of the extension you want to configure
-				}
-			}
-			vim.keymap.set('n','<leader>fp',require('telescope').extensions.projects.projects{},{desc = 'Find Projects'})
-
+				},
+			})
+			vim.keymap.set(
+				"n",
+				"<leader>fp",
+				require("telescope").extensions.projects.projects({}),
+				{ desc = "Find Projects" }
+			)
 		end,
-	}
+	},
+	{
+		"zaldih/themery.nvim",
+		lazy = false,
+		config = function()
+			require("themery").setup({
+				-- add the config here
+				themes = {
+					"onedark_vivid",
+					"onedark_dark",
+					"tokyonight",
+					"tokyonight-day",
+					"tokyonight-moon",
+					"tokyonight-storm",
+					"tokyonight-night",
+					"onedark",
+					"nordfox",
+					"dayfox",
+					"duskfox",
+					"nightfox",
+					"terafox",
+					"carbonfox",
+					"material-palenight",
+					"material-oceanic",
+					"material-lighter",
+					"material-deep-ocean",
+					"material-darker",
+				},
+			})
+		end,
+	},
 }

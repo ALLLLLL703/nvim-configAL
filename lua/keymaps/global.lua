@@ -21,16 +21,16 @@ map("n", "<leader>Q", ":qa!<CR>", { desc = "Force Quit All" })
 -- 缓冲区操作
 map("n", "<leader>bn", ":bnext<CR>", { desc = "Next Buffer" })
 map("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous Buffer" })
-map("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete Buffer" })
-vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height" })
+map("n", "<leader>bd", ":bdelete!<CR>", { desc = "Delete Buffer" })
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height", silent = true })
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height", silent = true })
 
 -- 调整窗口水平宽度
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width", silent = true })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width", silent = true })
 -- 分屏操作
-map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split Vertical" })
-map("n", "<leader>sh", ":split<CR>", { desc = "Split Horizontal" })
+map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split Vertical", silent = true })
+map("n", "<leader>sh", ":split<CR>", { desc = "Split Horizontal", silent = true })
 map("n", "<leader>sc", "<C-W>c", { desc = "Close Current Split" })
 map("n", "<leader>s=", "<C-W>=", { desc = "Equalize Splits" })
 
@@ -39,10 +39,13 @@ map("n", "<C-h>", "<C-W>h", { desc = "Move to Left Split" })
 map("n", "<C-j>", "<C-W>j", { desc = "Move to Down Split" })
 map("n", "<C-k>", "<C-W>k", { desc = "Move to Up Split" })
 map("n", "<C-l>", "<C-W>l", { desc = "Move to Right Split" })
+map("c", "<C-c>", "<Esc>", { desc = "Move to Right Split", silent = true })
 
 -- 插入模式下的 jk 退出
 map("i", "jk", "<Esc>", { desc = "Exit Insert Mode" })
 
+map("t", "<C-Home>", "<cmd>stopinsert<CR>", { desc = "Exit Insert Mode", silent = true })
+-- map("t", "jk", "<cmd>stopinsert<CR>", { desc = "Exit Insert Mode", silent = true })
 -- Visual 模式下缩进选区
 map("v", ">", ">gv", { desc = "Indent Selection" })
 map("v", "<", "<gv", { desc = "Outdent Selection" })
@@ -51,11 +54,19 @@ map("v", "<", "<gv", { desc = "Outdent Selection" })
 map({ "n", "v" }, "J", "mzJ`z", { desc = "Join Lines" })
 
 -- 保持高亮搜索结果，在输入后立即清除
-map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Clear Highlight Search" })
+map("n", "<leader>uh", ":nohlsearch<CR>", { desc = "Clear Highlight Search", silent = true })
 
 -- 复制文件路径到系统剪贴板
-map("n", "<leader>fP", ":let @+ = expand('%:p')<CR>", { desc = "Copy Full Path" })
-vim.keymap.set('n', '<leader>fp', ':lua require\'telescope\'.extensions.projects.projects{}<CR>',
-	{ desc = 'find projects' })
+map("n", "<leader>fP", ":let @+ = expand('%:p')<CR>", { desc = "Copy Full Path", silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>fp",
+	":lua require'telescope'.extensions.projects.projects{}<CR>",
+	{ desc = "find projects" }
+)
 
 map("n", "<leader>fd", ":let @+ = expand('%:p:h')<CR>", { desc = "Copy Directory Path" })
+map("n", "<A-j>", ":m .+1<CR>==", { silent = true })
+map("n", "<A-k>", ":m .-2<CR>==", { silent = true })
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
