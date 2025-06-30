@@ -13,6 +13,11 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("config.plugins.editor.treesitter")
+			require("keymaps.global")
+			require("keymaps.ui")
+			require("keymaps.run_and_debug")
+			require("keymaps.lsp")
+			require("keymaps.editor")
 		end,
 	},
 }

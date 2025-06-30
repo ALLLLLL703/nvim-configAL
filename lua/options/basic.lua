@@ -13,7 +13,6 @@ vim.opt.writebackup = false -- 不创建写入备份文件
 vim.opt.swapfile = false -- 不创建交换文件
 vim.opt.undofile = true -- 启用永久撤销功能 (可以撤销关闭 Neovim 后的操作)
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undo" -- 撤销文件目录，推荐放在 data 目录下
-
 -- 搜索
 vim.opt.ignorecase = true -- 搜索时忽略大小写
 vim.opt.smartcase = true -- 如果搜索模式包含大写字母，则开启大小写敏感搜索

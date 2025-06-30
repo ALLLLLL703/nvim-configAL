@@ -30,3 +30,14 @@ map({ "n", "v" }, "<leader>bl", "<cmd>BufferLineCloseLeft<CR>", { desc = "delete
 map({ "n", "v" }, "<leader>br", "<cmd>BufferLineCloseRight<CR>", { desc = "delete right" })
 map({ "n", "v" }, "<leader>bg", "<cmd>BufferLineGroupToggle<CR>", { desc = "group init" })
 map("n", "<leader>cm", "<cmd>Mason<CR>", { desc = "Mason" })
+local iswrap = true;
+local function toggle_wrap(iswrap)
+	if(iswrap) then
+		vim.cmd('set nowrap')
+	else
+		vim.cmd('set wrap')
+	end
+
+
+end
+-- map()

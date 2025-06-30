@@ -21,48 +21,18 @@ return {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
+
+		-- -@module 'noice'
+		-- -@type noice.Config
 		opts = {
 			-- add any options here
 		},
 		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
 		config = function()
-			require("noice").setup({
-				lsp = {
-					hover = {
-						enabled = true,
-					},
-					popumenu = {
-						enabled = false,
-					},
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-					views = {
-						size = { width = 60, height = "auto" },
-					},
-				},
-			})
-			require("lualine").setup({
-				sections = {
-					lualine_x = {
-						{
-							require("noice").api.statusline.mode.get,
-							cond = require("noice").api.statusline.mode.has,
-							color = { fg = "#ff9e64" },
-						},
-					},
-				},
-			})
-			require("keymaps.editor.group")
+			require("config.plugins.ui.noice")
 		end,
 	},
 }

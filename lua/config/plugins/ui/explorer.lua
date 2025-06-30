@@ -28,3 +28,4 @@ require("neo-tree").setup({
 	},
 })
 -- bufferlint.nvim
+--	~/application/植物大战僵尸融合版2.6旅行版本/【更新公告】2.6版本更新.txt

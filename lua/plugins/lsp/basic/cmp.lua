@@ -20,12 +20,14 @@ return {
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"fang2hou/blink-copilot",
+			"ribru17/blink-cmp-spell",
+			"moyiz/blink-emoji.nvim",
 			opts = {
 				max_completions = 1, -- Global default for max completions
 				max_attempts = 2, -- Global default for max attempts
 			},
 		},
-		event = "InsertEnter",
+		event = "VeryLazy",
 		-- version = '*',
 		build = "cargo build --release",
 		---@module 'blink.cmp'
@@ -62,7 +64,7 @@ return {
 
 				["<C-b>"] = { "scroll_documentation_up", "fallback" },
 				["<C-f>"] = { "scroll_documentation_down", "fallback" },
-
+				["<C-x>"] = { "cancel" },
 				["<Tab>"] = { "snippet_forward", "select_next", "fallback" }, -- 同时存在补全列表和snippet时，snippet跳转优先级更高
 				["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
 				["<A-1>"] = {
@@ -147,8 +149,9 @@ return {
 			},
 
 			-- 已定义启用的提供程序的默认列表，以便您可以扩展它
+
 			sources = {
-				default = { "buffer", "lsp", "path", "snippets" },
+				default = { "buffer", "lsp", "path", "snippets", "emoji" },
 				providers = {
 					-- score_offset设置优先级数字越大优先级越高
 					buffer = { score_offset = 4 },
@@ -169,6 +172,26 @@ return {
 							-- * max_attempts = 2
 							-- * all other options are default
 						},
+					},
+					emoji = {
+						module = "blink-emoji",
+						name = "Emoji",
+						score_offset = 15, -- Tune by preference
+						opts = {
+							insert = true, -- Insert emoji (default) or complete its name
+							---@type string|table|fun():table
+							trigger = function()
+								return { ":" }
+							end,
+						},
+						should_show_items = function()
+							return vim.tbl_contains(
+								-- Enable emoji completion only for git commits and markdown.
+								-- By default, enabled for all file-types.
+								{ "gitcommit", "markdown" },
+								vim.o.filetype
+							)
+						end,
 					},
 				},
 			},

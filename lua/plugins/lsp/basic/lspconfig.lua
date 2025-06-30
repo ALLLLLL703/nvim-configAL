@@ -28,6 +28,7 @@ return {
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("bash")
 			vim.lsp.enable("asm_lsp")
+			vim.lsp.enable("pyright")
 		end,
 	},
 }
