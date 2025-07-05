@@ -16,6 +16,9 @@ return {
 				desc = "Buffer Local Keymaps (which-key)",
 			},
 		},
+		config = function()
+			require("config.plugins.ui.whichkey")
+		end,
 	},
 	-- lazy.nvim
 	{

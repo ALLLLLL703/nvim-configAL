@@ -8,6 +8,7 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" }, -- 章节之间的分隔符
 		-- disabled_filetypes = { 'NvimTree', 'packer' }, -- 在特定文件类型中禁用 lualine
 		always_divide_middle = true, -- 总是将中间部分分成左右两半
+		globalstatus = true,
 	},
 	-- Section A: 左侧第一个区域 (通常显示模式)
 	sections = {

@@ -33,10 +33,10 @@ local plugins = {
 	require("plugins.lsp.basic.lspsaga"),
 	require("plugins.ui.telescope"),
 	require("plugins.ui.whichkey"),
+	require("plugins.ui.git"),
 
 	require("plugins.lsp.basic.diag"),
 	require("plugins.lsp.basic.cmp"),
-	require("plugins.debug.dap"),
 }
 
 require("lazy").setup(plugins, {
