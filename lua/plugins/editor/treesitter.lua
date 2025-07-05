@@ -21,21 +21,43 @@ return {
 		end,
 	},
 	{
-		"vhyrro/luarocks.nvim",
-		priority = 1001, -- this plugin needs to run before anything else
+		"3rd/image.nvim",
 		opts = {
-			rocks = { "magick" },
+			backend = "kitty",
 		},
 	},
 	{
-		"3rd/image.nvim",
-		dependencies = { "luarocks.nvim" },
+		"kylechui/nvim-surround",
+		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
 		config = function()
-			require("image").setup({
-				backend = "ueberzug",
-				max_height_window_percentage = 50,
-				hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.svg" },
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
 			})
 		end,
 	},
+	-- {
+	-- 	"folke/snacks.nvim",
+	-- 	priority = 1000,
+	-- 	lazy = false,
+	-- 	---@type snacks.Config
+	-- 	opts = {
+	-- 		-- your configuration comes here
+	-- 		-- or leave it empty to use the default settings
+	-- 		-- refer to the configuration section below
+	-- 		bigfile = { enabled = true },
+	-- 		dashboard = { enabled = true },
+	-- 		explorer = { enabled = false },
+	-- 		indent = { enabled = true },
+	-- 		input = { enabled = true },
+	-- 		image = { enabled = true },
+	-- 		picker = { enabled = false },
+	-- 		notifier = { enabled = false },
+	-- 		quickfile = { enabled = true },
+	-- 		scope = { enabled = false },
+	-- 		scroll = { enabled = true },
+	-- 		statuscolumn = { enabled = false },
+	-- 		words = { enabled = true },
+	-- 	},
+	-- },
 }
