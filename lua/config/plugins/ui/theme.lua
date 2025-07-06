@@ -1,0 +1,28 @@
+require("themery").setup({
+	-- add the config here
+	themes = {
+		"onedark_vivid",
+		"onedark_dark",
+		"tokyonight",
+		"tokyonight-day",
+		"tokyonight-moon",
+		"tokyonight-storm",
+		"tokyonight-night",
+		"onedark",
+		"nordfox",
+		"dayfox",
+		"duskfox",
+		"nightfox",
+		"terafox",
+		"carbonfox",
+		"material-palenight",
+		"material-oceanic",
+		"material-lighter",
+		"material-deep-ocean",
+		"material-darker",
+		"kanagawa-wave",
+		"kanagawa-lotus",
+		"kanagawa-dragon",
+		"kanagawa",
+	},
+})

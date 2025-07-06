@@ -1,5 +1,6 @@
 return {
 	{
+
 		"nvim-telescope/telescope.nvim",
 		event = "VeryLazy",
 		dependencies = {
@@ -14,7 +15,7 @@ return {
 			local lga_actions = require("telescope-live-grep-args.actions")
 			local lga_shortcuts = require("telescope-live-grep-args.shortcuts")
 			local undo_actions = require("telescope-undo.actions")
-			require("telescope").load_extension("projects")
+
 			telescope.setup({
 				defaults = {
 					layout_config = {
@@ -65,11 +66,20 @@ return {
 						display_stat = { date = true, size = true, mode = true },
 						git_status = true,
 					},
+					media_files = {
+						-- filetypes whitelist
+						-- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+						filetypes = { "png", "webp", "jpg", "jpeg" },
+						-- find command (defaults to `fd`)
+						find_cmd = "fd",
+					},
 				},
 			})
 			telescope.load_extension("undo")
 			telescope.load_extension("file_browser")
 			telescope.load_extension("live_grep_args")
+			require("telescope").load_extension("media_files")
+
 			local status_ok, telescope = pcall(require, "telescope")
 			if not status_ok then
 				return
@@ -167,42 +177,22 @@ return {
 					-- please take a look at the readme of the extension you want to configure
 				},
 			})
-			vim.keymap.set(
-				"n",
-				"<leader>fp",
-				require("telescope").extensions.projects.projects({}),
-				{ desc = "Find Projects" }
-			)
 		end,
 	},
 	{
 		"zaldih/themery.nvim",
 		lazy = false,
 		config = function()
-			require("themery").setup({
-				-- add the config here
-				themes = {
-					"onedark_vivid",
-					"onedark_dark",
-					"tokyonight",
-					"tokyonight-day",
-					"tokyonight-moon",
-					"tokyonight-storm",
-					"tokyonight-night",
-					"onedark",
-					"nordfox",
-					"dayfox",
-					"duskfox",
-					"nightfox",
-					"terafox",
-					"carbonfox",
-					"material-palenight",
-					"material-oceanic",
-					"material-lighter",
-					"material-deep-ocean",
-					"material-darker",
-				},
-			})
+			require("config.plugins.ui.theme")
 		end,
+	},
+	{
+		"nvim-telescope/telescope-media-files.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim",
+			"nvim-lua/popup.nvim",
+		},
+		config = function() end,
 	},
 }
