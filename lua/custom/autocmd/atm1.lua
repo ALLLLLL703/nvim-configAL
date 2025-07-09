@@ -1,18 +1,18 @@
 local fw = true
-vim.keymap.set('n', '<leader>td', function()
+vim.keymap.set("n", "<leader>td", function()
 	if fw then
 		fw = false
-		print('Diagnostic float disabled')
+		print("Diagnostic float disabled")
 	else
 		fw = true
-		print('Diagnostic float enabled')
+		print("Diagnostic float enabled")
 	end
-end, { desc = 'toggle diagnostic float' })
-vim.api.nvim_create_autocmd('CursorHold', {
-	pattern = '*',
+end, { desc = "toggle diagnostic float" })
+vim.api.nvim_create_autocmd("CursorHold", {
+	pattern = "*",
 	callback = function()
 		if fw then
-			vim.diagnostic.open_float(nil, { focus = false, border = 'rounded' })
+			vim.diagnostic.open_float(nil, { focus = false, border = "rounded" })
 		end
-	end
+	end,
 })

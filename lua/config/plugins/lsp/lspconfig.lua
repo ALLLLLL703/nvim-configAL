@@ -57,13 +57,14 @@ vim.diagnostic.config({
 	},
 	update_in_insert = false,
 	severity_sort = true,
+
 	signs = {
 		text = {
 			-- Alas nerdfont icons don't render properly on Medium!
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.HINT] = " ",
-			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.ERROR] = "󰈸 ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
 		},
 	},
 	float = { border = "rounded" },

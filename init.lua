@@ -6,3 +6,4 @@ require("keymaps")
 
 require("plugins")
 require("custom")
+vim.cmd("so ~/.config/nvim/lua/config/plugins/ui/lualine.lua")

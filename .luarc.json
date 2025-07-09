@@ -6,6 +6,7 @@
         "${3rd}/luassert/library"
     ],
     "diagnostics.globals": [
-        "local"
+        "local",
+        "str"
     ]
 }

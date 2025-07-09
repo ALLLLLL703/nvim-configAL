@@ -22,9 +22,9 @@ return {
 	},
 	{
 		"3rd/image.nvim",
-		opts = {
-			backend = "kitty",
-		},
+		config = function()
+			require("config.plugins.ui.image")
+		end,
 	},
 	{
 		"kylechui/nvim-surround",
