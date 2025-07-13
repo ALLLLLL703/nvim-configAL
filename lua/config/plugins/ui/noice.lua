@@ -12,7 +12,7 @@ require("noice").setup({
 			["cmp.entry.get_documentation"] = true,
 		},
 		views = {
-			size = { width = 60, height = "auto" },
+			size = { width = { max = 20 }, height = "auto" },
 		},
 	},
 	cmdline = {
@@ -49,3 +49,7 @@ require("lualine").setup({
 	},
 })
 require("keymaps.editor.group")
+require("notify").setup({
+	max_width = 60,
+	max_height = 10,
+})

@@ -22,6 +22,7 @@ return {
 			"fang2hou/blink-copilot",
 			"ribru17/blink-cmp-spell",
 			"moyiz/blink-emoji.nvim",
+			"xzbdmw/colorful-menu.nvim",
 			opts = {
 				max_completions = 1, -- Global default for max completions
 				max_attempts = 2, -- Global default for max attempts
