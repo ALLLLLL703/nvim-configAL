@@ -34,7 +34,7 @@ local plugins = {
 	require("plugins.ui.telescope"),
 	require("plugins.ui.whichkey"),
 	require("plugins.ui.git"),
-
+	require("plugins.dap.dap"),
 	require("plugins.lsp.basic.diag"),
 	require("plugins.lsp.basic.cmp"),
 }

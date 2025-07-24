@@ -84,4 +84,11 @@ return {
 			accept = { auto_brackets = { enabled = true } }
 		end,
 	},
+	{
+		"xeluxee/competitest.nvim",
+		dependencies = "MunifTanjim/nui.nvim",
+		config = function()
+			require("competitest").setup()
+		end,
+	},
 }
