@@ -91,4 +91,16 @@ return {
 			require("competitest").setup()
 		end,
 	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim", branch = "master" },
+		},
+		build = "make tiktoken",
+
+		config = function()
+			require("config.plugins.editor.copilot")
+			require("keymaps.editor.copilot")
+		end,
+	},
 }

@@ -27,7 +27,6 @@ require("lualine").setup({
 				icon = "",
 			},
 		},
-
 		-- Section X: 右侧第三个区域 (通常显示 LSP 状态和诊断信息)
 		lualine_x = {
 			"diagnostics", -- 显示 LSP 诊断信息 (错误、警告等)

@@ -20,12 +20,7 @@ return {
 			require("keymaps.editor")
 		end,
 	},
-	{
-		"3rd/image.nvim",
-		config = function()
-			require("config.plugins.ui.image")
-		end,
-	},
+
 	{
 		"kylechui/nvim-surround",
 		version = "^3.0.0", -- Use for stability; omit to use `main` branch for the latest features
@@ -44,6 +39,13 @@ return {
 		event = "VeryLazy",
 		config = function()
 			require("hlargs").setup({})
+		end,
+	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		event = "VeryLazy",
+		config = function()
+			require("config.plugins.ui.colorizer")
 		end,
 	},
 }

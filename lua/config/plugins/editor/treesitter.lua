@@ -29,12 +29,12 @@ configs.setup({
 			enable = true,
 			lookahead = true,
 			keymaps = {
-				["aF"] = "@function.outer", -- 选中整个函数
-				["af"] = "@function.inner", -- 选中函数体
-				["aC"] = "@class.outer", -- 选中整个类
-				["ac"] = "@class.inner", -- 选中类内容
-				["aA"] = "@parameter.outer", -- 选中参数
-				["aa"] = "@parameter.inner", -- 选中参数内容
+				["af"] = "@function.outer", -- 选中整个函数
+				["if"] = "@function.inner", -- 选中函数体
+				["ac"] = "@class.outer", -- 选中整个类
+				["ic"] = "@class.inner", -- 选中类内容
+				["aa"] = "@parameter.outer", -- 选中参数
+				["ia"] = "@parameter.inner", -- 选中参数内容
 			},
 		},
 		move = {

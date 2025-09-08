@@ -84,14 +84,9 @@ return {
 		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
 		-- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
 		lazy = false,
-		keys = {
-			{
-				"-",
-				mode = { "n", "v" },
-				":Oil<CR>",
-				desc = "Open Oil",
-			},
-		},
+		config = function()
+			require("config.plugins.editor.oil")
+		end,
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",

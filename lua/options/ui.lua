@@ -13,12 +13,9 @@ vim.opt.termguicolors = true -- 启用真彩色终端支持 (如果你的终端�
 vim.opt.cmdheight = 1 -- 命令行的行数
 vim.opt.showmode = false -- 不显示模式信息 (许多插件会提供更好的状态栏，所以禁用内置的)
 vim.opt.scrolloff = 8 -- 光标距离屏幕边缘的最小行数，防止光标停在边缘
-
+vim.opt.hlsearch = false
 -- 语法高亮
 vim.opt.syntax = "on" -- 启用内置语法高亮 (虽然 Treesitter 更好，但这个是兜底)
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 --fold
 vim.o.foldmethod = "expr"
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
@@ -59,4 +56,11 @@ function _G.custom_foldtext()
 	table.insert(result, { "", "@comment.warning.gitcommit" })
 	return result
 end
-vim.o.foldtext = "v:lua.custom_foldtext()"
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+vim.keymap.set("n", "<leader>uo", function()
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+	vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+end, { desc = "toggle transparent", silent = true })

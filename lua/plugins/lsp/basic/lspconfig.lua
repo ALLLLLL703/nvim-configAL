@@ -29,6 +29,11 @@ return {
 			vim.lsp.enable("bash")
 			vim.lsp.enable("asm_lsp")
 			vim.lsp.enable("pyright")
+			vim.lsp.enable("biome")
+			vim.lsp.enable("css-lsp")
+			vim.lsp.enable("css-var")
+			vim.lsp.enable("css-module")
+			vim.lsp.enable("jsonls")
 			require("lspconfig").jdtls.setup({})
 		end,
 	},

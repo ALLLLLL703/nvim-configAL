@@ -21,7 +21,7 @@ require("blink.cmp").setup({
 
 	keymap = {
 		preset = "none",
-		["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+		["<C-t>"] = { "show", "show_documentation", "hide_documentation" },
 		-- ['<C-e>'] = { 'hide' },
 		-- fallback命令将运行下一个非闪烁键盘映射(回车键的默认换行等操作需要)
 		["<C-e>"] = { "hide", "fallback" },
@@ -158,7 +158,7 @@ require("blink.cmp").setup({
 	-- 已定义启用的提供程序的默认列表，以便您可以扩展它
 
 	sources = {
-		default = { "buffer", "lsp", "path", "snippets", "emoji" },
+		default = { "copilot", "buffer", "lsp", "path", "snippets", "emoji", "copilotChat" },
 		providers = {
 			-- score_offset设置优先级数字越大优先级越高
 			buffer = { score_offset = 4 },
@@ -179,6 +179,10 @@ require("blink.cmp").setup({
 					-- * max_attempts = 2
 					-- * all other options are default
 				},
+			},
+			copilotChat = {
+				module = "cmp.copilotChat",
+				max_items = 10,
 			},
 			emoji = {
 				module = "blink-emoji",

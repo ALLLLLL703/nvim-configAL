@@ -29,6 +29,10 @@ dap.configurations = {
 			cwd = "${workspaceFolder}",
 			stopAtEntry = false,
 			MIMode = "gdb",
+			args = function()
+				local str = vim.fn.input("Arguments:")
+				return vim.split(str, " ")
+			end,
 		},
 		{
 			name = "Attach to lldbserver :1234",

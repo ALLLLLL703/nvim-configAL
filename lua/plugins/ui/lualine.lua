@@ -30,4 +30,10 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 	},
+	{
+		"anuvyklack/pretty-fold.nvim",
+		config = function()
+			require("pretty-fold").setup()
+		end,
+	},
 }

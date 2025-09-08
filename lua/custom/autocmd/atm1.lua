@@ -1,4 +1,4 @@
-local fw = true
+local fw = false
 vim.keymap.set("n", "<leader>td", function()
 	if fw then
 		fw = false

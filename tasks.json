@@ -1,0 +1,14 @@
+[
+	{
+		"name": "task1",
+		"command": "echo 'Hello, World!'"
+	},
+	{
+		"name": "task2",
+		"command": "ls -la"
+	},
+	{
+		"name": "task3",
+		"command": "pwd"
+	}
+]

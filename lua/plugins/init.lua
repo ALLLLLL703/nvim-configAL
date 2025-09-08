@@ -37,6 +37,8 @@ local plugins = {
 	require("plugins.dap.dap"),
 	require("plugins.lsp.basic.diag"),
 	require("plugins.lsp.basic.cmp"),
+	require("plugins.editor.hardtime"),
+	require("plugins.editor.task"),
 }
 
 require("lazy").setup(plugins, {
