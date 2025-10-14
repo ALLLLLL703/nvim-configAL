@@ -1,53 +1,33 @@
-local api = vim.api
-local function feedkeys(keys, mode)
-  api.nvim_feedkeys(api.nvim_replace_termcodes(keys, true, true, true), mode, true)
+local M = {}
+
+-- 运算符映射表
+local invert_ops = {
+	["=="] = "!=",
+	["!="] = "==",
+	[">"] = "<=",
+	["<"] = ">=",
+	[">="] = "<",
+	["<="] = ">",
+}
+---@param cond string
+local function invert_word(cond)
+	for op, inv in pairs(invert_ops) do
+		local pattern = "(%S+)%s*" .. op .. "%s*(%S+)"
+		local lhs, rhs = cond:match(pattern)
+		if lhs and rhs then
+			return lhs .. " " .. inv .. " " .. rhs
+		end
+	end
+	return "!(" .. cond .. ")"
 end
 
-local defualt_word_map = {
-  ['true'] = 'false',
-  ['True'] = 'False',
-  ['TRUE'] = 'FALSE',
-  ['false'] = 'true',
-  ['False'] = 'True',
-  ['FALSE'] = 'TRUE',
-  ['yes'] = 'no',
-  ['Yes'] = 'No',
-  ['YES'] = 'NO',
-  ['no'] = 'yes',
-  ['No'] = 'Yes',
-  ['NO'] = 'YES',
-  ['on'] = 'off',
-  ['On'] = 'Off',
-  ['ON'] = 'OFF',
-  ['off'] = 'on',
-  ['Off'] = 'On',
-  ['OFF'] = 'ON',
-  ['max'] = 'min',
-  ['Max'] = 'Min',
-  ['MAX'] = 'MIN',
-  ['min'] = 'max',
-  ['Min'] = 'Max',
-  ['MIN'] = 'MAX',
-  ['and'] = 'or',
-  ['And'] = 'Or',
-  ['AND'] = 'OR',
-  ['or'] = 'and',
-  ['Or'] = 'And',
-  ['OR'] = 'AND',
-  ['+'] = '-',
-  ['+='] = '-=',
-  ['-'] = '+',
-  ['-='] = '+=',
-  ['<'] = '>',
-  ['>'] = '<',
-  ['=='] = '!=',
-  ['!='] = '==',
-  ['<='] = '>=',
-  ['>='] = '<=',
-  ['&'] = '|',
-  ['&&'] = '||',
-  ['&='] = '|=',
-  ['|'] = '&',
-  ['||'] = '&&',
-  ['|='] = '&=',
-}
+function M.flip_if()
+	local line = vim.api.nvim_get_current_line()
+	local new = line:gsub("^%s*if%s*%((.*)%)", function(cond)
+		return "if (" .. invert_word(cond) .. ")"
+	end)
+	if vim.bo.filetype == "c" or vim.bo.filetype == "cpp" then
+		vim.api.nvim_set_current_line(new)
+	end
+end
+return M

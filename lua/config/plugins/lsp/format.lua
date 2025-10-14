@@ -19,6 +19,9 @@ require("conform").setup({
 			timeout_ms = 500,
 			lsp_format = "fallback",
 		},
+		sh = {
+			"beautysh",
+		},
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = "*",
 			callback = function(args)

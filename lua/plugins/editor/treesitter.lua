@@ -18,6 +18,8 @@ return {
 			require("keymaps.run_and_debug")
 			require("keymaps.lsp")
 			require("keymaps.editor")
+			require("keymaps.editor.ufunc")
+			require("keymaps.editor.undo")
 		end,
 	},
 

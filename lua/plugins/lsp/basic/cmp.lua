@@ -34,7 +34,6 @@ return {
 		config = function()
 			require("config.plugins.lsp.cmp")
 		end,
-		opts_extend = { "sources.default" },
 	},
 	{ "rafamadriz/friendly-snippets" },
 }

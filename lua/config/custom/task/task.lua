@@ -44,7 +44,7 @@ vim.api.nvim_create_user_command("TaskRun", function(opts)
 		print("Please provide a task name.")
 		return
 	end
-	if tasks[opts.fargs[1]] and opts.fargs[2] == "term" then
+	if tasks[opts.fargs[1]] and opts.fargs[2] == "t" then
 		local cmd = tasks[opts.fargs[1]]
 		print("Running task: " .. opts.fargs[1] .. " -> " .. cmd)
 		vim.cmd("terminal" .. " " .. cmd .. "")

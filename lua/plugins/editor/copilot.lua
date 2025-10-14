@@ -1,12 +1,12 @@
 return {
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({})
-		end,
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("copilot").setup({})
+	-- 	end,
+	-- },
 	{
 		"ahmedkhalf/project.nvim",
 		config = function()
@@ -91,16 +91,16 @@ return {
 			require("competitest").setup()
 		end,
 	},
-	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		dependencies = {
-			{ "nvim-lua/plenary.nvim", branch = "master" },
-		},
-		build = "make tiktoken",
-
-		config = function()
-			require("config.plugins.editor.copilot")
-			require("keymaps.editor.copilot")
-		end,
-	},
+	-- {
+	-- 	"CopilotC-Nvim/CopilotChat.nvim",
+	-- 	dependencies = {
+	-- 		{ "nvim-lua/plenary.nvim", branch = "master" },
+	-- 	},
+	-- 	build = "make tiktoken",
+	--
+	-- 	config = function()
+	-- 		require("config.plugins.editor.copilot")
+	-- 		require("keymaps.editor.copilot")
+	-- 	end,
+	-- },
 }

@@ -93,7 +93,6 @@ require("blink.cmp").setup({
 		documentation = { auto_show = true, auto_show_delay_ms = 500 },
 		-- 不预选第一个项目，选中后自动插入该项目文本
 		list = { selection = { preselect = false, auto_insert = true } },
-		enabled = true,
 		ghost_text = {},
 		trigger = {
 			show_on_keyword = true,
@@ -118,12 +117,12 @@ require("blink.cmp").setup({
 		},
 	},
 	-- 指定文件类型启用/禁用
-	enabled = function()
-		return not vim.tbl_contains({
-			-- "lua",
-			-- "markdown"
-		}, vim.bo.filetype) and vim.bo.buftype ~= "prompt" and vim.b.completion ~= false
-	end,
+	-- enabled = function()
+	-- 	return not vim.tbl_contains({
+	-- 		-- "lua",
+	-- 		-- "markdown"
+	-- 	}, vim.bo.filetype) and vim.bo.buftype ~= "prompt" and vim.b.completion ~= false
+	-- end,
 
 	appearance = {
 		-- 将“Nerd Font Mono”设置为“mono”，将“Nerd Font”设置为“normal”
@@ -158,32 +157,32 @@ require("blink.cmp").setup({
 	-- 已定义启用的提供程序的默认列表，以便您可以扩展它
 
 	sources = {
-		default = { "copilot", "buffer", "lsp", "path", "snippets", "emoji", "copilotChat" },
+		default = { "buffer", "lsp", "path", "snippets", "emoji" },
 		providers = {
 			-- score_offset设置优先级数字越大优先级越高
 			buffer = { score_offset = 4 },
 			path = { score_offset = 3 },
 			lsp = { score_offset = 4 },
 			snippets = { score_offset = 2 },
-			copilot = {
-				name = "copilot",
-				module = "blink-copilot",
-				score_offset = 100,
-				async = true,
-				opts = {
-					-- Local options override global ones
-					max_completions = 3, -- Override global max_completions
-
-					-- Final settings:
-					-- * max_completions = 3
-					-- * max_attempts = 2
-					-- * all other options are default
-				},
-			},
-			copilotChat = {
-				module = "cmp.copilotChat",
-				max_items = 10,
-			},
+			-- copilot = {
+			-- 	name = "copilot",
+			-- 	module = "blink-copilot",
+			-- 	score_offset = 100,
+			-- 	async = true,
+			-- 	opts = {
+			-- 		-- Local options override global ones
+			-- 		max_completions = 3, -- Override global max_completions
+			--
+			-- 		-- Final settings:
+			-- 		-- * max_completions = 3
+			-- 		-- * max_attempts = 2
+			-- 		-- * all other options are default
+			-- 	},
+			-- },
+			-- copilotChat = {
+			-- 	module = "cmp.copilotChat",
+			-- 	max_items = 10,
+			-- },
 			emoji = {
 				module = "blink-emoji",
 				name = "Emoji",

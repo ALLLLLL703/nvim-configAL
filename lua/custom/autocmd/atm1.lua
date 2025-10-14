@@ -16,3 +16,11 @@ vim.api.nvim_create_autocmd("CursorHold", {
 		end
 	end,
 })
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*.zsh",
+	callback = function()
+		if vim.bo.filetype == "zsh" then
+			vim.bo.filetype = "sh"
+		end
+	end,
+})

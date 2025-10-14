@@ -14,7 +14,7 @@ map("n", "<leader>ll", "<cmd>Lazy<CR>", { desc = "lazyvim" })
 -- Show hydra mode for changing windows
 map({ "n", "i", "v" }, "<c-s>", "<cmd>w!<CR>", { desc = "save file", silent = true })
 --vim.keymap.del('n','<leader>e')
-map({ "n", "v" }, "<leader>E", "<cmd>Neotree toggle<CR>", { desc = "explorer" })
+map({ "n", "v" }, "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "explorer" })
 map({ "n", "v" }, "H", "<cmd>BufferLineCyclePrev<CR>", { desc = "buffer to prev" })
 map({ "n", "v" }, "L", "<cmd>BufferLineCycleNext<CR>", { desc = "buffer to next" })
 map({ "n", "v" }, "<leader>bd", function()

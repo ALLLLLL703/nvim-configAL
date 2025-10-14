@@ -44,8 +44,7 @@ map("c", "<C-c>", "<Esc>", { desc = "Move to Right Split", silent = true })
 -- 插入模式下的 jk 退出
 map("i", "jk", "<Esc>", { desc = "Exit Insert Mode" })
 
-map("t", "<C-Home>", "<cmd>stopinsert<CR>", { desc = "Exit Insert Mode", silent = true })
-map("t", "<esc>", "<cmd>stopinsert<CR>", { desc = "Exit Insert Mode", silent = true })
+map("t", "<A-;>", "<cmd>stopinsert<CR>", { desc = "Exit Insert Mode", silent = true })
 -- map("t", "jk", "<cmd>stopinsert<CR>", { desc = "Exit Insert Mode", silent = true })
 -- Visual 模式下缩进选区
 map("v", ">", ">gv", { desc = "Indent Selection" })
