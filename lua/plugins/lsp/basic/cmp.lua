@@ -19,6 +19,7 @@ return {
 		"saghen/blink.cmp",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
+			"Kaiser-Yang/blink-cmp-avante",
 			"fang2hou/blink-copilot",
 			"ribru17/blink-cmp-spell",
 			"moyiz/blink-emoji.nvim",

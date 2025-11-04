@@ -8,6 +8,7 @@ require("conform").setup({
 		-- Conform will run the first available formatter
 		javascript = { "prettierd", "prettier", stop_after_first = true },
 		c = { "clang-format" },
+		java = { "clang-format" },
 		json = {
 			"biome",
 		},

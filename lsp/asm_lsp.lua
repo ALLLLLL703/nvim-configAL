@@ -8,6 +8,6 @@
 --- cargo install asm-lsp
 return {
 	cmd = { "asm-lsp" },
-	filetypes = { "asm", "vmasm", "s" },
+	filetypes = { "asm", "vmasm", "s", "nasm" },
 	root_markers = { ".asm-lsp.toml", ".git" },
 }

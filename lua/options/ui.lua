@@ -56,11 +56,53 @@ function _G.custom_foldtext()
 	table.insert(result, { "", "@comment.warning.gitcommit" })
 	return result
 end
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-vim.keymap.set("n", "<leader>uo", function()
+-- 透明背景设置
+local function set_transparent_background()
+	-- 主窗口背景透明
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 	vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-end, { desc = "toggle transparent", silent = true })
+
+	-- 浮动窗口透明
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+	vim.api.nvim_set_hl(0, "FloatTitle", { bg = "none" })
+
+	-- 其他 UI 元素透明
+	vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+	vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+	vim.api.nvim_set_hl(0, "CursorLineNr", { bg = "none" })
+	vim.api.nvim_set_hl(0, "Folded", { bg = "none" })
+	vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
+
+	-- 状态栏透明
+	vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+	vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
+
+	-- 标签页透明
+	vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+	vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
+	vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+end
+
+-- 初始化时设置透明背景
+
+-- 透明背景切换快捷键
+local is_transparent = true
+function toggle_transparent()
+	if is_transparent then
+		-- 恢复默认背景
+		vim.api.nvim_set_hl(0, "Normal", { bg = "#1a1b26" })
+		vim.api.nvim_set_hl(0, "NormalNC", { bg = "#1a1b26" })
+		vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "#1a1b26" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1a1b26" })
+		print("透明背景已关闭")
+	else
+		-- 设置透明背景
+		set_transparent_background()
+		print("透明背景已开启")
+	end
+	is_transparent = not is_transparent
+end
+vim.keymap.set("n", "<leader>uo", toggle_transparent, { desc = "toggle transparent background", silent = true })
+toggle_transparent()

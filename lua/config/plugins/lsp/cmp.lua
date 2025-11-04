@@ -157,7 +157,7 @@ require("blink.cmp").setup({
 	-- 已定义启用的提供程序的默认列表，以便您可以扩展它
 
 	sources = {
-		default = { "buffer", "lsp", "path", "snippets", "emoji" },
+		default = { "avante", "buffer", "lsp", "path", "snippets", "emoji" },
 		providers = {
 			-- score_offset设置优先级数字越大优先级越高
 			buffer = { score_offset = 4 },
@@ -202,6 +202,13 @@ require("blink.cmp").setup({
 						vim.o.filetype
 					)
 				end,
+			},
+			avante = {
+				module = "blink-cmp-avante",
+				name = "Avante",
+				opts = {
+					-- options for blink-cmp-avante
+				},
 			},
 		},
 	},

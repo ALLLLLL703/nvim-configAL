@@ -40,6 +40,7 @@ local plugins = {
 	require("plugins.editor.hardtime"),
 	require("plugins.editor.task"),
 	require("plugins.editor.undo"),
+	require("plugins.editor.avante"),
 }
 
 require("lazy").setup(plugins, {

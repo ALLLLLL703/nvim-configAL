@@ -34,6 +34,7 @@ return {
 			vim.lsp.enable("css-var")
 			vim.lsp.enable("css-module")
 			vim.lsp.enable("jsonls")
+			vim.lsp.enable("taplo")
 			require("lspconfig").jdtls.setup({})
 		end,
 	},

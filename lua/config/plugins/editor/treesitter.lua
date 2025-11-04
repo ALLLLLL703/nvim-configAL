@@ -35,13 +35,27 @@ configs.setup({
 				["ic"] = "@class.inner", -- 选中类内容
 				["aa"] = "@parameter.outer", -- 选中参数
 				["ia"] = "@parameter.inner", -- 选中参数内容
+				["ir"] = "@conditional.inner",
+				["ar"] = "@conditional.outer",
 			},
 		},
 		move = {
 			enable = true,
 			set_jumps = true,
-			goto_next_start = { ["]m"] = "@function.outer" },
-			goto_previous_start = { ["[m"] = "@function.outer" },
+			goto_next_start = {
+				["]f"] = "@function.outer",
+				["]p"] = "@parameter.outer",
+				["]c"] = "@class.outer",
+				["]r"] = "@conditional.outer",
+				["]b"] = "@block.outer",
+			},
+			goto_previous_start = {
+				["[f"] = "@function.outer",
+				["[p"] = "@parameter.outer",
+				["[c"] = "@class.outer",
+				["[r"] = "@conditional.outer",
+				["[b"] = "@block.outer",
+			},
 		},
 	},
 })

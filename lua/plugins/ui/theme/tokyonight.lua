@@ -20,6 +20,8 @@ return {
 				-- 主题样式：'night', 'storm', 'moon', 'day'
 				-- 默认为 'night'。你可以根据喜好修改。
 				style = "night",
+				-- 启用透明背景
+				transparent = true,
 
 				on_colorscheme = function()
 					-- 你可以在这里添加一些在颜色主题加载后需要执行的逻辑
