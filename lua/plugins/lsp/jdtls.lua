@@ -1,7 +1,7 @@
 -- Taken from: https://github.com/mfussenegger/nvim-jdtls#configuration-quickstart
 -- May need the verbose configuration at some point
 local config = {
-	cmd = { os.getenv("HOME_DIR") .. ".local/share/nvim/mason/bin/jdtls" },
+	cmd = { "/home/sanae/.config/nvim/lua/plugins/lsp/jdtls-launch.sh" },
 	root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 }
 

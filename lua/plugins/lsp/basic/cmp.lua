@@ -37,4 +37,16 @@ return {
 		end,
 	},
 	{ "rafamadriz/friendly-snippets" },
+	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*",
+		-- install jsregexp (optional!).
+		dependencies = { "rafamadriz/friendly-snippets" },
+		build = "make install_jsregexp",
+		event = "VeryLazy",
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load({})
+		end,
+	},
 }

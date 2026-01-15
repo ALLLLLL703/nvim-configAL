@@ -7,5 +7,8 @@ return {
 		},
 		lazy = false,
 		opts = {},
+		config = function()
+			require("config.plugins.editor.refactoring")
+		end,
 	},
 }

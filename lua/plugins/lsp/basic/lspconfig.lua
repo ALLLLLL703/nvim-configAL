@@ -35,7 +35,10 @@ return {
 			vim.lsp.enable("css-module")
 			vim.lsp.enable("jsonls")
 			vim.lsp.enable("taplo")
-			require("lspconfig").jdtls.setup({})
+			vim.lsp.enable("html_lsp")
+			vim.lsp.enable("glslls")
+			vim.lsp.enable("lemminx")
+			vim.lsp.enable("spy")
 		end,
 	},
 	{

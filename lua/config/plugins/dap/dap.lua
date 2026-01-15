@@ -16,6 +16,12 @@ mason_dap.setup({
 	},
 })
 
+dap.adapters.lldb = {
+	type = "executable",
+	command = vim.fn.expand("~/.local/share/nvim/mason/bin/codelldb"), -- adjust as needed, must be absolute path
+	name = "lldb",
+}
+
 -- Configurations
 dap.configurations = {
 	c = {
@@ -47,6 +53,31 @@ dap.configurations = {
 			end,
 		},
 	},
+	cpp = {
+		{
+			name = "Launch",
+			type = "lldb",
+			request = "launch",
+			program = function()
+				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+			end,
+			cwd = "${workspaceFolder}",
+			stopOnEntry = false,
+			args = function()
+				local str = vim.fn.input("Arguments:")
+				return vim.split(str, " ")
+			end,
+		},
+	},
+	-- java = {
+	-- 	{
+	-- 		type = "java",
+	-- 		request = "attach",
+	-- 		name = "Attach to Minecraft Server",
+	-- 		hostName = "127.0.0.1",
+	-- 		port = 5005,
+	-- 	},
+	-- },
 }
 
 -- Dap UI
@@ -67,3 +98,5 @@ end
 dap.listeners.before.event_exited.dapui_config = function()
 	ui.close()
 end
+
+require("dap.ext.vscode").load_launchjs()

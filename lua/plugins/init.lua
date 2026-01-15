@@ -41,6 +41,14 @@ local plugins = {
 	require("plugins.editor.task"),
 	require("plugins.editor.undo"),
 	require("plugins.editor.avante"),
+	require("plugins.editor.reflactoring"),
+	require("plugins.ui.html_preview"),
+	require("plugins.editor.leetcode"),
+	require("plugins.ui.icon"),
+	require("plugins.lsp.basic.lint"),
+	require("plugins.custom.mc"),
+	require("plugins.lsp.basic.neodev"),
+	require("plugins.editor.run"),
 }
 
 require("lazy").setup(plugins, {

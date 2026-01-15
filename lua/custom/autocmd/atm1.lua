@@ -24,3 +24,19 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		end
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*.class",
+	callback = function()
+		if vim.bo.filetype == "class" then
+			vim.cmd("setfiletype java")
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "*.mcfunction",
+	callback = function()
+		vim.cmd("setfiletype mcfunction")
+	end,
+})

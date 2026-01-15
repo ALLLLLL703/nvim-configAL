@@ -6,7 +6,7 @@ require("blink.cmp").setup({
 			["<Tab>"] = { "show_and_insert", "select_next" },
 			["<S-Tab>"] = { "show_and_insert", "select_prev" },
 
-			["<C-space>"] = { "show", "fallback" },
+			["<C-t>"] = { "show", "fallback" },
 
 			["<C-n>"] = { "select_next", "fallback" },
 			["<C-p>"] = { "select_prev", "fallback" },
@@ -26,14 +26,14 @@ require("blink.cmp").setup({
 		-- fallback命令将运行下一个非闪烁键盘映射(回车键的默认换行等操作需要)
 		["<C-e>"] = { "hide", "fallback" },
 		["<CR>"] = { "accept", "fallback" }, -- 更改成'select_and_accept'会选择第一项插入
-		["<C-p>"] = { "select_prev", "snippet_backward", "fallback" },
-		["<C-n>"] = { "select_next", "snippet_forward", "fallback" }, -- 同时存在补全列表和snippet时，补全列表选择优先级更高
+		["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+		["<Tab>"] = { "select_next", "snippet_forward", "fallback" }, -- 同时存在补全列表和snippet时，补全列表选择优先级更高
 
 		["<C-b>"] = { "scroll_documentation_up", "fallback" },
 		["<C-f>"] = { "scroll_documentation_down", "fallback" },
 		["<C-x>"] = { "cancel" },
-		["<Tab>"] = { "snippet_forward", "select_next", "fallback" }, -- 同时存在补全列表和snippet时，snippet跳转优先级更高
-		["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
+		["<C-n>"] = { "snippet_forward", "select_next", "fallback" }, -- 同时存在补全列表和snippet时，snippet跳转优先级更高
+		["<C-p>"] = { "snippet_backward", "select_prev", "fallback" },
 		["<A-1>"] = {
 			function(cmp)
 				cmp.accept({ index = 1 })
@@ -157,7 +157,7 @@ require("blink.cmp").setup({
 	-- 已定义启用的提供程序的默认列表，以便您可以扩展它
 
 	sources = {
-		default = { "avante", "buffer", "lsp", "path", "snippets", "emoji" },
+		default = { "lazydev", "avante", "buffer", "lsp", "path", "snippets", "emoji" },
 		providers = {
 			-- score_offset设置优先级数字越大优先级越高
 			buffer = { score_offset = 4 },
@@ -209,6 +209,12 @@ require("blink.cmp").setup({
 				opts = {
 					-- options for blink-cmp-avante
 				},
+			},
+			lazydev = {
+				name = "LazyDev",
+				module = "lazydev.integrations.blink",
+				-- make lazydev completions top priority (see `:h blink.cmp`)
+				score_offset = 100,
 			},
 		},
 	},

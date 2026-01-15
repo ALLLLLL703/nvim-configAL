@@ -68,16 +68,34 @@
 --- * [Lua.workspace.library](https://luals.github.io/wiki/settings/#workspacelibrary)
 ---
 return {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  root_markers = {
-    '.luarc.json',
-    '.luarc.jsonc',
-    '.luacheckrc',
-    '.stylua.toml',
-    'stylua.toml',
-    'selene.toml',
-    'selene.yml',
-    '.git',
-  },
+	cmd = { "lua-language-server" },
+	filetypes = { "lua" },
+	root_markers = {
+		".luarc.json",
+		".luarc.jsonc",
+		".luacheckrc",
+		".stylua.toml",
+		".git",
+	},
+	settings = {
+		Lua = {
+			runtime = {
+				version = "Lua 5.3",
+				path = {
+					"?.lua",
+					"?/init.lua",
+					vim.fn.expand("~/.luarocks/share/lua/5.3/?.lua"),
+					vim.fn.expand("~/.luarocks/share/lua/5.3/?/init.lua"),
+					"/usr/share/5.3/?.lua",
+					"/usr/share/lua/5.3/?/init.lua",
+				},
+			},
+			workspace = {
+				library = {
+					vim.fn.expand("~/.luarocks/share/lua/5.3"),
+					"/usr/share/lua/5.3",
+				},
+			},
+		},
+	},
 }

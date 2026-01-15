@@ -22,4 +22,4 @@ maps("n", "gi", "<cmd>Telescope lsp_implementations<CR>", { silent = true, desc 
 maps("n", "gr", "<cmd>Telescope lsp_references<CR>", { silent = true, desc = "goto references" })
 maps("n", "gk", "<cmd>Telescope lsp_document_symbols<CR>", { silent = true, desc = "goto document_symbols" })
 maps("n", "gs", "<cmd>Telescope spell_suggest<CR>", { silent = true, desc = "goto spell_suggests" })
-maps("n", "<leader>nt", "<cmd>Telescope notify<cr>", { silent = true, desc = "notify telescope" })
+maps("n", "<leader>nt", "<cmd>NoiceTelescope<cr>", { silent = true, desc = "notify telescope" })

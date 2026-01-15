@@ -5,7 +5,6 @@
 
 -- 编码
 vim.opt.encoding = "utf-8" -- Neovim 内部编码
-vim.opt.fileencoding = "utf-8" -- 文件写入时的编码
 
 -- 备份和撤销
 vim.opt.backup = false -- 不创建备份文件
