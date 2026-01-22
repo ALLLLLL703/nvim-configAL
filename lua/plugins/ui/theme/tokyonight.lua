@@ -1,9 +1,7 @@
 return {
 	{
 		"folke/tokyonight.nvim",
-		-- tag: 推荐使用特定的 tag 来锁定版本
-		tag = false, -- 你可以在 GitHub 仓库的 "releases" 页面找到最新稳定 tag。
-
+		-- tag: 推荐使用特定的 tag 来锁定版本 tag = false, -- 你可以在 GitHub 仓库的 "releases" 页面找到最新稳定 tag。
 		-- 事件驱动加载 (Lazy Loading):
 		-- 颜色主题通常应该在 Neovim 启动时就加载，以确保 UI 颜色正确。
 		priority = 1000, -- 设置高优先级，确保在大多数其他插件之前加载。
@@ -21,7 +19,7 @@ return {
 				-- 默认为 'night'。你可以根据喜好修改。
 				style = "night",
 				-- 启用透明背景
-				transparent = true,
+				transparent = false,
 
 				on_colorscheme = function()
 					-- 你可以在这里添加一些在颜色主题加载后需要执行的逻辑
@@ -45,6 +43,7 @@ return {
 		name = "nightfox",
 		tag = false,
 	},
+
 	{ "marko-cerovac/material.nvim", name = "material", tag = false },
 	{
 		"rebelot/kanagawa.nvim",
@@ -104,6 +103,16 @@ return {
 					light = "lotus",
 				},
 			})
+		end,
+	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{
+		"baliestri/aura-theme",
+		lazy = false,
+		priority = 1000,
+		config = function(plugin)
+			vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+			-- vim.cmd([[colorscheme aura-dark]])
 		end,
 	},
 }

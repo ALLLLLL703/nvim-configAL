@@ -39,6 +39,7 @@ return {
 			vim.lsp.enable("glslls")
 			vim.lsp.enable("lemminx")
 			vim.lsp.enable("spy")
+			vim.lsp.enable("neocmake")
 		end,
 	},
 	{

@@ -49,6 +49,7 @@ local plugins = {
 	require("plugins.custom.mc"),
 	require("plugins.lsp.basic.neodev"),
 	require("plugins.editor.run"),
+	require("plugins.editor.leap"),
 }
 
 require("lazy").setup(plugins, {

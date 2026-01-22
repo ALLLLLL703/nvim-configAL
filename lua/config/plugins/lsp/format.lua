@@ -30,6 +30,13 @@ require("conform").setup({
 		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
+
+	formatters = {
+		-- You can customize some of the formatter options (:help conform.formatters)
+		cmake = {
+			command = "cmake-format",
+		},
+	},
 })
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",

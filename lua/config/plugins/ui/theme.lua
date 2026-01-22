@@ -24,5 +24,10 @@ require("themery").setup({
 		"kanagawa-lotus",
 		"kanagawa-dragon",
 		"kanagawa",
+		"catppuccin",
+		"catppuccin-frappe",
+		"catppuccin-macchiato",
+		"catppuccin-mocha",
+		"catppuccin-latte",
 	},
 })
