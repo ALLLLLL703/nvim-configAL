@@ -25,18 +25,41 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*.class",
-	callback = function()
-		if vim.bo.filetype == "class" then
-			vim.cmd("setfiletype java")
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	pattern = "*.class",
+-- 	callback = function()
+-- 		if vim.bo.filetype == "class" then
+-- 			vim.cmd("setfiletype java")
+-- 		end
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd("BufEnter", {
 	pattern = "*.mcfunction",
 	callback = function()
 		vim.cmd("setfiletype mcfunction")
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*",
+	desc = "auto chmod +x when observe shebang",
+	callback = function(args)
+		local file = args.file
+		if file == "" then
+			return
+		end
+
+		local fisrt_line = vim.fn.getline(1)
+		if not vim.startswith(fisrt_line, "#!") then
+			return
+		end
+
+		if vim.fn.executable(file) == 1 then
+			return
+		end
+
+		vim.fn.system({ "chmod", "+x", file })
+		vim.notify("Set +x permission to " .. file, vim.log.levels.INFO)
 	end,
 })

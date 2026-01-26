@@ -13,6 +13,7 @@ require("neo-tree").setup({
 		},
 	},
 	filesystem = {
+		group_empty_dirs = true,
 		window = {
 			mappings = {
 				["I"] = "run_command",

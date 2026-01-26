@@ -89,7 +89,7 @@ end
 
 -- 透明背景切换快捷键
 local is_transparent = true
-function toggle_transparent()
+local function toggle_transparent()
 	if is_transparent then
 		-- 恢复默认背景
 		vim.api.nvim_set_hl(0, "Normal", { bg = "#1a1b26" })

@@ -5,10 +5,10 @@ local mason_path = vim.fn.stdpath("data") .. "/mason"
 local java_debug_path = mason_path .. "/packages/java-debug-adapter"
 local java_test_path = mason_path .. "/packages/java-test"
 
-local root_dir = jdtls.setup.find_root({ "mvnw", "gradlew", ".git", "pom.xml" })
+local root_dir = jdtls.setup.find_root({ "mvnw", "gradlew", ".git", "pom.xml", "build.gradle" })
 local project_name = vim.fn.fnamemodify(root_dir, ":t")
 local workspace_dir = root_dir .. "/.jdtls"
-bundles = {}
+local bundles = {}
 vim.list_extend(
 	bundles,
 	vim.split(vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"), "\n")

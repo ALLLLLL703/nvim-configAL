@@ -23,3 +23,4 @@ maps("n", "gr", "<cmd>Telescope lsp_references<CR>", { silent = true, desc = "go
 maps("n", "gk", "<cmd>Telescope lsp_document_symbols<CR>", { silent = true, desc = "goto document_symbols" })
 maps("n", "gs", "<cmd>Telescope spell_suggest<CR>", { silent = true, desc = "goto spell_suggests" })
 maps("n", "<leader>nt", "<cmd>NoiceTelescope<cr>", { silent = true, desc = "notify telescope" })
+maps("n", "<leader>uc", "<cmd>Telescope colorscheme<cr>", { desc = "telescope colorscheme" })
