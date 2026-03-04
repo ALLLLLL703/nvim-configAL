@@ -36,6 +36,14 @@ require("noice").setup({
 			-- lua = false, -- to disable a format, set to `false`
 		},
 	},
+	routes = {
+		{
+			filter = { event = "notify", any = {
+				{ find = "request handler panicked" },
+			} },
+			opts = { skip = true },
+		},
+	},
 })
 require("lualine").setup({
 	sections = {

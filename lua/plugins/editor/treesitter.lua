@@ -17,6 +17,7 @@ return {
 			require("keymaps.editor")
 			require("keymaps.editor.ufunc")
 			require("keymaps.editor.undo")
+			require("keymaps.editor.term")
 			require("config.plugins.ui.highlight")
 			require("keymaps.editor.treesitter")
 			require("config.custom.global-func")

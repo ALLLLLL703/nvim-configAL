@@ -44,5 +44,5 @@ local opt = {
 }
 require("oil").setup(opt)
 vim.keymap.set("n", "-", function()
-	require("oil").toggle_float()
+	vim.cmd("Oil")
 end, { desc = "Open oil" })

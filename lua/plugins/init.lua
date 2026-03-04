@@ -18,9 +18,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- 定义插件列表
--- **重要**: 这里我们将 nvim-tree.lua 插件的配置添加到列表中。
 local plugins = {
-	-- 调用 lua/plugins/ui/nvim-tree.lua 文件中定义的插件配置
 	require("plugins.editor.treesitter"),
 	require("plugins.editor.ufo"),
 	require("plugins.editor.copilot"),
@@ -51,6 +49,10 @@ local plugins = {
 	require("plugins.editor.run"),
 	require("plugins.editor.leap"),
 	require("plugins.editor.todo"),
+	require("plugins.editor.mpv"),
+	require("plugins.lsp.basic.csharp"),
+	require("plugins.editor.annotation"),
+	require("plugins.custom.study"),
 }
 
 require("lazy").setup(plugins, {

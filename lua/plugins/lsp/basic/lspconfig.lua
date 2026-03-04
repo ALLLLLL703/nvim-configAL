@@ -25,7 +25,7 @@ return {
 			require("config.plugins.lsp.lspconfig")
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("clangd")
-			vim.lsp.enable("rust_analyzer")
+			-- vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("bash")
 			vim.lsp.enable("asm_lsp")
 			vim.lsp.enable("pyright")
@@ -40,6 +40,11 @@ return {
 			vim.lsp.enable("lemminx")
 			vim.lsp.enable("spy")
 			vim.lsp.enable("neocmake")
+			-- vim.lsp.enable("csharp-ls")
+			vim.lsp.enable("omnisharp")
+			vim.lsp.enable("gradle")
+			-- vim.lsp.enable("kotlin")
+			vim.lsp.enable("vim")
 		end,
 	},
 	{

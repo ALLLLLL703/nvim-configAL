@@ -27,10 +27,6 @@ return {
 					-- vim.cmd.highlight("Comment guifg=#565f89") -- 示例：将注释颜色调整为更深的紫色
 				end,
 			})
-
-			-- 激活颜色主题。这行非常重要，它告诉 Neovim 使用 'tokyonight' 作为当前颜色主题。
-			-- 如果你不调用 setup() 函数来自定义，可以直接使用：
-			-- vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 	{

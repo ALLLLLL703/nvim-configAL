@@ -7,3 +7,5 @@
 require("options.basic")
 require("options.ui")
 require("options.behavior")
+vim.cmd("filetype plugin on")
+

@@ -16,10 +16,10 @@ mason_dap.setup({
 	},
 })
 
-dap.adapters.lldb = {
+dap.adapters.codelldb = {
 	type = "executable",
 	command = vim.fn.expand("~/.local/share/nvim/mason/bin/codelldb"), -- adjust as needed, must be absolute path
-	name = "lldb",
+	name = "codelldb",
 }
 
 -- Configurations
@@ -56,7 +56,7 @@ dap.configurations = {
 	cpp = {
 		{
 			name = "Launch",
-			type = "lldb",
+			type = "codelldb",
 			request = "launch",
 			program = function()
 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")

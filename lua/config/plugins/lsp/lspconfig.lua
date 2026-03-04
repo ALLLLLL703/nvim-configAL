@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 vim.diagnostic.config({
-	underline = true,
+	underline = false,
 	virtual_text = {
 		spacing = 2,
 		prefix = "●",

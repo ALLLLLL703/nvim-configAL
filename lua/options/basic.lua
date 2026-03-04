@@ -18,7 +18,7 @@ vim.opt.smartcase = true -- 如果搜索模式包含大写字母，则开启大�
 vim.opt.hlsearch = true -- 高亮搜索结果
 vim.opt.incsearch = true -- 增量搜索（边输入边搜索）
 
-vim.opt.cursorline = true -- **vim.opt.cursorline**: 高亮光标所在的整行。
+vim.opt.cursorline = false -- **vim.opt.cursorline**: 高亮光标所在的整行。
 --左侧符号显示
 vim.opt.signcolumn = "yes"
 -- **vim.opt.completeopt**: 自动补全菜单的选项。
