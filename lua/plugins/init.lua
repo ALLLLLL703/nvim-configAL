@@ -53,6 +53,9 @@ local plugins = {
 	require("plugins.lsp.basic.csharp"),
 	require("plugins.editor.annotation"),
 	require("plugins.custom.study"),
+	require("plugins.lsp.basic.cmake"),
+	require("plugins.editor.maven"),
+	require("plugins.editor.codesnap"),
 }
 
 require("lazy").setup(plugins, {

@@ -24,10 +24,7 @@ return {
 			"ribru17/blink-cmp-spell",
 			"moyiz/blink-emoji.nvim",
 			"xzbdmw/colorful-menu.nvim",
-			opts = {
-				max_completions = 1, -- Global default for max completions
-				max_attempts = 2, -- Global default for max attempts
-			},
+			"ribru17/blink-cmp-spell",
 		},
 		event = "VeryLazy",
 		-- version = '*',
@@ -48,12 +45,5 @@ return {
 		config = function()
 			require("luasnip.loaders.from_vscode").lazy_load({})
 		end,
-	},
-	{
-		"honza/vim-snippets",
-
-		version = "*",
-		event = "VeryLaze",
-		config = function() end,
 	},
 }

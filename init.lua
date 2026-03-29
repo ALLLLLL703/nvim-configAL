@@ -8,6 +8,4 @@ if not vim.g.vscode then
 	require("keymaps.editor.tabs")
 	require("options")
 else
-	require("custom")
-	require("options")
 end

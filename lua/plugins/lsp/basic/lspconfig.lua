@@ -29,6 +29,7 @@ return {
 			vim.lsp.enable("bash")
 			vim.lsp.enable("asm_lsp")
 			vim.lsp.enable("pyright")
+			-- vim.lsp.enable("pyrefly")
 			vim.lsp.enable("biome")
 			vim.lsp.enable("css-lsp")
 			vim.lsp.enable("css-var")
@@ -39,12 +40,13 @@ return {
 			vim.lsp.enable("glslls")
 			vim.lsp.enable("lemminx")
 			vim.lsp.enable("spy")
-			vim.lsp.enable("neocmake")
+			-- vim.lsp.enable("neocmake")
 			-- vim.lsp.enable("csharp-ls")
 			vim.lsp.enable("omnisharp")
 			vim.lsp.enable("gradle")
 			-- vim.lsp.enable("kotlin")
 			vim.lsp.enable("vim")
+			vim.lsp.enable("yaml")
 		end,
 	},
 	{

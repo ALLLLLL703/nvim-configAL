@@ -22,6 +22,15 @@ dap.adapters.codelldb = {
 	name = "codelldb",
 }
 
+dap.adapters.rust_cpptool = {
+	type = "executable",
+	command = "cppdbg",
+	name = "rust_cpptool",
+	options = {
+		detached = false,
+	},
+}
+
 -- Configurations
 dap.configurations = {
 	c = {
@@ -65,6 +74,22 @@ dap.configurations = {
 			stopOnEntry = false,
 			args = function()
 				local str = vim.fn.input("Arguments:")
+				return vim.split(str, " ")
+			end,
+		},
+	},
+	rust = {
+		{
+			name = "Launch",
+			type = "rust_cpptool",
+			request = "launch",
+			program = function()
+				return vim.fn.input("Path to executable", vim.fn.getcwd() .. "/", "file")
+			end,
+			cwd = "${workspaceFolder}",
+			stopOnEntry = false,
+			args = function()
+				local str = vim.fn.input("Arguments")
 				return vim.split(str, " ")
 			end,
 		},

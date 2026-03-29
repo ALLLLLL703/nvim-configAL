@@ -1,6 +1,7 @@
 require("lint").linters_by_ft = {
 	markdown = { "vale" },
 	html = { "htmlhint" },
+	python = { "ruff" },
 }
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
